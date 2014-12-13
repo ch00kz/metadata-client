@@ -21,14 +21,21 @@ metadataApp.config(function($stateProvider){
 
 });
 
-metadataApp.controller('ProjectsController', ['$rootScope','Project', function($rootScope,Project) {
+metadataApp.controller('ProjectsController', ['$rootScope','Project', function($rootScope,$scope,Project) {
+
 	window.scope = $rootScope;
 }]);
-metadataApp.controller('ProjectCreateController', ['$rootScope','Project','$sce', function($rootScope,Project,$sce) {
+metadataApp.controller('ProjectCreateController', ['$rootScope','Project','$sce', '$scope', function($rootScope,Project,$sce,$scope) {
 	window.scope = $rootScope;
 	Project.getForm().then(function(response){
 		$rootScope.projectForm = $sce.trustAsHtml(response.data);
 	});
+
+	$scope.createProject = function(){
+		console.log("Creating project..");
+	};
+
+
 }]);
 metadataApp.controller('ProjectDetailController', ['$rootScope','Project','$stateParams', function($rootScope, Project, $stateParams) {
 
