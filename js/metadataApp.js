@@ -1,5 +1,5 @@
  // Main Module
-var metadataApp = angular.module('metadataApp', ['ui.router','ngResource']);
+var metadataApp = angular.module('metadataApp', ['ui.router','ngResource','ngSanitize']);
 
 metadataApp.config(function($stateProvider){
 	$stateProvider
@@ -24,10 +24,10 @@ metadataApp.config(function($stateProvider){
 metadataApp.controller('ProjectsController', ['$rootScope','Project', function($rootScope,Project) {
 	window.scope = $rootScope;
 }]);
-metadataApp.controller('ProjectCreateController', ['$rootScope','Project', function($rootScope,Project) {
+metadataApp.controller('ProjectCreateController', ['$rootScope','Project','$sce', function($rootScope,Project,$sce) {
 	window.scope = $rootScope;
 	Project.getForm().then(function(response){
-		$rootScope.projectForm = response.data;
+		$rootScope.projectForm = $sce.trustAsHtml(response.data);
 	});
 }]);
 metadataApp.controller('ProjectDetailController', ['$rootScope','Project','$stateParams', function($rootScope, Project, $stateParams) {
