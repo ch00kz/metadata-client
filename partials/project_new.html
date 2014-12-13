@@ -1,3 +1,8 @@
-<section class="detail-section">
+<header class="page-header">
+	Create Project
+</header>
+<section class="page-section">
 	<div ng-bind-html="projectForm"></div>
+	<a ui-sref="projects" class="no"><i class="fa fa-remove left"></i> Cancel</a>
+	<a ng-click="createProject()" class="yes">Create <i class="fa fa-plus right"></i> </a>
 </section>
