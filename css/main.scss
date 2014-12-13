@@ -1,0 +1,180 @@
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+$sidebarWidth: 300px;
+
+$headerHeight: 50px;
+
+// colors
+$headerBg: #b2585f;
+$sidebarBg: #eeeeee;
+
+body {
+	color: #3c3c3c;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+@mixin flat-button ($background, $color, $selectedBackground, $selectedColor) {
+	display: inline-block;
+	background-color: $background;
+	color: $color;
+	border-radius: 2px;
+	text-transform: uppercase;
+	border: none;
+	letter-spacing: .8px;
+	padding: 8px 15px;
+	text-decoration: none;
+	position: relative;
+	cursor: pointer;
+ 	transition: all 0.2s ease-in-out;
+	.fa {
+		color: white;
+		margin-right: 5px;
+	}
+
+	&.selected {
+		background-color: $selectedBackground;
+		color: $selectedColor;
+	}
+}
+
+header#header {
+	color: #fff;
+	background: $headerBg;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: $headerHeight;
+
+	div#sidebar-logo {
+		display: inline-block;
+		text-align: center;
+		width: $sidebarWidth;
+		height: $headerHeight;
+		line-height: $headerHeight;
+		font-size: 20px;
+		float: left;
+	}
+
+	#header-nav {
+		float: left;
+		padding-left: 10px;
+		display: inline-block;
+		a {
+			@include flat-button(rgba(0,0,0,0), white, #58b27e, white);
+			top: 7px;
+		}
+	}
+}
+
+#sidebar {
+	background: $sidebarBg;
+	position: absolute;
+	top: $headerHeight;
+	left:0;
+	bottom:0;
+	width: $sidebarWidth;
+	border-right: 1px solid #5E5E5E;
+}
+
+div#content {
+	position: absolute;
+	top: $headerHeight;
+	left: $sidebarWidth;
+	right:0;
+	bottom:0;
+	overflow-y: auto;
+
+	a.add {
+		@include flat-button(#39A1F4, white, #58b2ab, white);
+		padding: 15px 25px;
+	}
+
+	.detail-header {
+		padding: 20px;
+		position:relative;
+		left: 1px;
+		color: white;
+		background: #3D84E2;
+		height: 150px;
+
+		.title {
+			font-weight:600;
+			font-size: 25px;
+		}
+
+		.data {
+			margin-top:10px;
+			font-weight: 300;
+		}
+
+		&.shrinkAndFix {
+			position: fixed;
+			height: 30px;
+			top: 50px;
+			left: 301px;
+			right: 0px;
+
+			.data {
+				display: none;
+			}
+		}
+	}
+
+	.detail-section {
+		padding: 10px;
+	}
+}
+
+.card {
+	text-decoration:none;
+	display:block;
+	background:#fff;
+	border-top: 1px solid #f5f5f5;
+	border-bottom: 1px solid #f5f5f5;
+	padding: 10px;
+	cursor: pointer;
+	.name {
+		color: #3C3C3C;
+		font-weight: 600;
+		margin-bottom: 5px;
+	}
+	.description {
+		color: silver;
+		font-weight: 300;
+	}
+	&.selected {
+		background: #5E5E5E;
+		.name {
+			color: white;
+		}
+		.description {
+			color: #E4E4E4;
+		}
+	}
+	&:first-child {
+		border-top: none;
+	}
+	&:not(:last-child) {
+		border-bottom: none;
+	}
+}
+
+input#search {
+    font-family: 'Source Sans Pro', sans-serif, 'FontAwesome';
+	padding: 5px 10px;
+	width: 90%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 3px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	border: 1px solid rgb(221, 221, 221);
+	&:focus {
+		outline: none;
+		border-color: #b2585f;
+	}
+}
+
