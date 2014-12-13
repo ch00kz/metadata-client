@@ -8,32 +8,26 @@ metadataApp.config(function($stateProvider){
 	      	templateUrl: "partials/projects.html",
 	      	controller: "ProjectsController",
 	    })
+	    .state('projectCreate', {
+	      	url: "/projects/new",
+	      	templateUrl: "partials/project_new.html",
+	      	controller: "ProjectCreateController",
+	    })
 	    .state('projectDetail', {
 	      	url: "/projects/:projectId",
 	      	templateUrl: "partials/project_detail.html",
 	      	controller: "ProjectDetailController",
 	    });
+
 });
 
 metadataApp.controller('ProjectsController', ['$rootScope','Project', function($rootScope,Project) {
-	$rootScope.section = 'projects';
-
-	Project.getList().then(function(response){
-		$rootScope.projects = response.data.objects;
-	});
-
 	window.scope = $rootScope;
 }]);
-
+metadataApp.controller('ProjectCreateController', ['$rootScope','Project', function($rootScope,Project) {
+	window.scope = $rootScope;
+}]);
 metadataApp.controller('ProjectDetailController', ['$rootScope','Project','$stateParams', function($rootScope, Project, $stateParams) {
-
-	$rootScope.section = 'projects';
-
-	if(!$rootScope.projects) {
-		Project.getList().then(function(response){
-			$rootScope.projects = response.data.objects;
-		});
-	}
 
 	$rootScope.staffId = $stateParams.staffId;
 
@@ -73,19 +67,38 @@ metadataApp.factory('Project', ['$http', function($http){
     			method: "GET",
     		});
     		return promise;
+    	},
+    	getForm: function(id) {
+    		var formUrl = "http://localhost:8000/form-project/";
+    		var promise = $http({
+    			url: formUrl,
+    			method: "GET",
+    		});
+    		return promise;
     	}
     };
 }]);
 
-metadataApp.run(['$rootScope', function($rootScope){
-	// check for username and token in session
+metadataApp.run(['$rootScope','Project' , function($rootScope, Project){
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-		if (!(toState.name == "projectDetails" || toState.name == "projectLogs")) {
+		console.log("Going to state ->", toState.name);
 
+		// Remove selected Project is moving away from detail page.
+		if (toState.name != "projectDetail") {
+			$rootScope.selectedProject = 0;
+		}
+
+		// Fetch list of projects and set section to project
+		var goingToProjectState = toState.name == "projects" || toState.name == "projectCreate" || toState.name == "projectDetail";
+		if (goingToProjectState){
+			$rootScope.section = 'projects';
+			if(!$rootScope.projects) {
+				Project.getList().then(function(response){
+					$rootScope.projects = response.data.objects;
+				});
+			}
 		}
 	});
-
-
 }]);
 
 
