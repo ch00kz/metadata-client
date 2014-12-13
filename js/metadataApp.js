@@ -26,6 +26,9 @@ metadataApp.controller('ProjectsController', ['$rootScope','Project', function($
 }]);
 metadataApp.controller('ProjectCreateController', ['$rootScope','Project', function($rootScope,Project) {
 	window.scope = $rootScope;
+	Project.getForm().then(function(response){
+		$rootScope.projectForm = response.data;
+	});
 }]);
 metadataApp.controller('ProjectDetailController', ['$rootScope','Project','$stateParams', function($rootScope, Project, $stateParams) {
 
