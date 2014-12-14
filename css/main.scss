@@ -166,7 +166,6 @@ header#header {
 		text-decoration: none;
 		.fa {
 			transition: all 0.3s ease-in-out;
-			color: #1EA1C0;
 		}
 		&:hover {
 			.fa {
@@ -252,18 +251,23 @@ div#content {
 	.detail-header {
 		padding: 20px;
 		position: fixed;
-		height: 12px;
 		top: 50px;
 		left: 301px;
 		right: 0px;
 		color: white;
 		background: #3D84E2;
-		height: 150px;
+		height: auto;
+		max-height: 400px;
 		transition: all $headingTransitionTime ease-in-out;
 
 		.title {
 			font-weight:600;
 			font-size: 25px;
+			span {
+				position: relative;
+				font-size: 14px;
+				font-weight: 400;
+			}
 		}
 
 		.data {
@@ -271,9 +275,39 @@ div#content {
 			font-weight: 300;
 		}
 
+		.currency {
+			span {
+				color: white;
+			}
+			.fa {
+				font-size: 15px;
+				color: white;
+			}
+			color: #00FF47;
+			font-size: 20px;
+			font-weight: 600;
+		}
+
+		.date {
+			display: inline-block;
+			margin-right: 30px;
+			&.start {
+				.fa {
+					color: #72E4FF;
+					margin-right: 5px;
+				}
+			}
+			&.end {
+				.fa {
+					color: yellow;
+					margin-right: 5px;
+				}
+			}
+		}
+
 		.project-controls {
 			position: absolute;
-			top: 140px;
+			top: 15px;
 			right: 30px;
 			transition: all $headingTransitionTime ease-in-out;
 			a {
@@ -283,11 +317,12 @@ div#content {
 
 		&.shrinkAndFix {
 			position: fixed;
-			height: 12px;
+			max-height: 12px;
 			line-height: 12px;
 			top: 50px;
 			left: 301px;
 			right: 0px;
+			transition: all $headingTransitionTime ease-in-out;
 
 			.data {
 				display: none;
@@ -302,8 +337,35 @@ div#content {
 	}
 
 	.detail-section {
-		padding: 10px;
 		padding-top: 220px;
+
+		.project-data-card {
+			border-radius: 3px;
+			display: inline-block;
+			width: 43%;
+			padding: 10px 15px;
+			border:1px solid #eee;
+			margin-bottom: 10px;
+			&:nth-child(odd){
+				margin-right: 1%;
+				margin-left: 2%;
+			}
+
+			.label {
+				font-weight: 600;
+			}
+			.data {
+				.staff {
+					display: inline-block;
+					padding: 3px 10px;
+					border-radius: 2px;
+					background-color: #F4F4F4;
+					margin-right: 6px;
+					margin-top:4px;
+				}
+			}
+
+		}
 	}
 }
 
