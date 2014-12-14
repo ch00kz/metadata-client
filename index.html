@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html ng-app="metadataApp">
+<html ng-app="app">
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<!-- scripts -->
+		<!-- libraries -->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-resource.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-sanitize.js"></script>
 		<script src="lib/angular-ui-router.min.js"></script>
-		<script src="js/metadataApp.js"></script>
-		<script src="js/metadata.js"></script>
+		<!-- /libraries -->
+		<script src="app/app.module.js"></script>
+		<script src="app/app.routes.js"></script>
+		<script src="app/projects/projects.controller.js"></script>
+		<script src="app/projects/projects.factory.js"></script>
 	</head>
 	<body>
 		<header class="z-depth-1" id="header">
