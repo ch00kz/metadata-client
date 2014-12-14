@@ -1,33 +1,36 @@
 <header class="detail-header">
-	<div class="title">{{ selectedProject.name }}</div>
-	<div class="data">More details to be shown here</div>
-	<div class="data">More details to be shown here</div>
-	<div class="data">More details to be shown here</div>
+	<div ng-show="selectedProject.name" class="title">
+		{{ selectedProject.name }}</div>
+
+
+	<div ng-show="selectedProject.description" class="data description">{{ selectedProject.description }}</div>
+	<div ng-show="selectedProject.value" class="data currency"> <span>{{ selectedProject.currency }}</span> ${{ selectedProject.value }}  </div>
+	<div ng-show="selectedProject.start_date" class="data date start"><i class="fa fa-calendar"></i> {{ selectedProject.start_date }}</div>
+	<div ng-show="selectedProject.start_date" class="data date end"><i class="fa fa-calendar"></i> {{ selectedProject.expected_end_date }}</div>
 	<div class="project-controls">
 		<a class="no">Delete Project</a>
 		<a class="maybe">Update Logs</a>
 	</div>
 </header>
 <section class="detail-section">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae nunc blandit, maximus dolor at, convallis ipsum. Morbi sed posuere ligula. Sed commodo tortor vitae consequat aliquet. Nullam orci massa, vulputate ut imperdiet quis, faucibus nec velit. Maecenas interdum tortor ut est sodales fermentum. Nunc mattis eleifend fermentum. Nam nec fermentum urna, vel blandit mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus vehicula blandit lectus in eleifend. Nam elementum augue sed semper finibus. Nam porttitor erat diam, ac feugiat sapien tempor pulvinar. In id felis felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nibh elit, fermentum at molestie non, vestibulum quis elit. Integer quam arcu, lobortis vitae porta in, mattis at metus.
-
-Nullam viverra leo sed fermentum faucibus. Maecenas eleifend neque quis neque elementum scelerisque. Etiam venenatis, massa sed egestas molestie, nisi tellus dapibus diam, quis varius lacus enim ut turpis. In nisi leo, hendrerit non tellus ut, varius viverra magna. Nullam tempus libero ut luctus malesuada. Nunc consectetur lacus eu venenatis dignissim. Sed dictum odio urna, ac ultrices est sodales vitae. Nam sollicitudin placerat turpis eu placerat. Fusce et ante ex. Pellentesque id eleifend enim, nec mollis nibh. Pellentesque sed pellentesque sapien, eget scelerisque sapien. Proin metus metus, feugiat id blandit id, consequat ac nibh. Sed fermentum, urna at condimentum euismod, orci erat gravida mi, eu elementum erat purus vitae erat. Nulla eu turpis sed leo ultrices lobortis. Maecenas accumsan est ut pharetra finibus.
-
-Suspendisse efficitur nisi ut porta cursus. Donec vel dictum nisl. Duis vel odio ultrices, vehicula nulla vel, dignissim justo. Donec felis est, aliquam aliquam nisl quis, rhoncus ornare lacus. Vivamus commodo nec nunc eget tristique. In hac habitasse platea dictumst. Maecenas iaculis consectetur ex ornare consectetur. In non faucibus risus, sit amet tincidunt lacus. Suspendisse luctus mattis vulputate. Donec luctus porta mi. Proin bibendum ut nunc in finibus.
-
-Vivamus aliquam mattis urna, et vulputate ipsum finibus et. Morbi porttitor sapien ex, at commodo nibh fermentum sit amet. Vestibulum iaculis erat eu tellus dignissim, sit amet imperdiet massa tincidunt. Curabitur dictum, neque et placerat ultricies, odio est semper sapien, eget pulvinar felis diam et odio. Aliquam erat volutpat. Etiam tincidunt pellentesque augue quis ultricies. Suspendisse lectus odio, interdum in condimentum vel, auctor sed purus. Praesent iaculis dapibus lectus quis lobortis. Pellentesque commodo nulla sed accumsan aliquam. Mauris eu mi quam. Nunc rutrum risus pharetra mattis tincidunt.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae nunc blandit, maximus dolor at, convallis ipsum. Morbi sed posuere ligula. Sed commodo tortor vitae consequat aliquet. Nullam orci massa, vulputate ut imperdiet quis, faucibus nec velit. Maecenas interdum tortor ut est sodales fermentum. Nunc mattis eleifend fermentum. Nam nec fermentum urna, vel blandit mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus vehicula blandit lectus in eleifend. Nam elementum augue sed semper finibus. Nam porttitor erat diam, ac feugiat sapien tempor pulvinar. In id felis felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nibh elit, fermentum at molestie non, vestibulum quis elit. Integer quam arcu, lobortis vitae porta in, mattis at metus.
-
-Nullam viverra leo sed fermentum faucibus. Maecenas eleifend neque quis neque elementum scelerisque. Etiam venenatis, massa sed egestas molestie, nisi tellus dapibus diam, quis varius lacus enim ut turpis. In nisi leo, hendrerit non tellus ut, varius viverra magna. Nullam tempus libero ut luctus malesuada. Nunc consectetur lacus eu venenatis dignissim. Sed dictum odio urna, ac ultrices est sodales vitae. Nam sollicitudin placerat turpis eu placerat. Fusce et ante ex. Pellentesque id eleifend enim, nec mollis nibh. Pellentesque sed pellentesque sapien, eget scelerisque sapien. Proin metus metus, feugiat id blandit id, consequat ac nibh. Sed fermentum, urna at condimentum euismod, orci erat gravida mi, eu elementum erat purus vitae erat. Nulla eu turpis sed leo ultrices lobortis. Maecenas accumsan est ut pharetra finibus.
-
-Suspendisse efficitur nisi ut porta cursus. Donec vel dictum nisl. Duis vel odio ultrices, vehicula nulla vel, dignissim justo. Donec felis est, aliquam aliquam nisl quis, rhoncus ornare lacus. Vivamus commodo nec nunc eget tristique. In hac habitasse platea dictumst. Maecenas iaculis consectetur ex ornare consectetur. In non faucibus risus, sit amet tincidunt lacus. Suspendisse luctus mattis vulputate. Donec luctus porta mi. Proin bibendum ut nunc in finibus.
-
-Vivamus aliquam mattis urna, et vulputate ipsum finibus et. Morbi porttitor sapien ex, at commodo nibh fermentum sit amet. Vestibulum iaculis erat eu tellus dignissim, sit amet imperdiet massa tincidunt. Curabitur dictum, neque et placerat ultricies, odio est semper sapien, eget pulvinar felis diam et odio. Aliquam erat volutpat. Etiam tincidunt pellentesque augue quis ultricies. Suspendisse lectus odio, interdum in condimentum vel, auctor sed purus. Praesent iaculis dapibus lectus quis lobortis. Pellentesque commodo nulla sed accumsan aliquam. Mauris eu mi quam. Nunc rutrum risus pharetra mattis tincidunt.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae nunc blandit, maximus dolor at, convallis ipsum. Morbi sed posuere ligula. Sed commodo tortor vitae consequat aliquet. Nullam orci massa, vulputate ut imperdiet quis, faucibus nec velit. Maecenas interdum tortor ut est sodales fermentum. Nunc mattis eleifend fermentum. Nam nec fermentum urna, vel blandit mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus vehicula blandit lectus in eleifend. Nam elementum augue sed semper finibus. Nam porttitor erat diam, ac feugiat sapien tempor pulvinar. In id felis felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nibh elit, fermentum at molestie non, vestibulum quis elit. Integer quam arcu, lobortis vitae porta in, mattis at metus.
-
-Nullam viverra leo sed fermentum faucibus. Maecenas eleifend neque quis neque elementum scelerisque. Etiam venenatis, massa sed egestas molestie, nisi tellus dapibus diam, quis varius lacus enim ut turpis. In nisi leo, hendrerit non tellus ut, varius viverra magna. Nullam tempus libero ut luctus malesuada. Nunc consectetur lacus eu venenatis dignissim. Sed dictum odio urna, ac ultrices est sodales vitae. Nam sollicitudin placerat turpis eu placerat. Fusce et ante ex. Pellentesque id eleifend enim, nec mollis nibh. Pellentesque sed pellentesque sapien, eget scelerisque sapien. Proin metus metus, feugiat id blandit id, consequat ac nibh. Sed fermentum, urna at condimentum euismod, orci erat gravida mi, eu elementum erat purus vitae erat. Nulla eu turpis sed leo ultrices lobortis. Maecenas accumsan est ut pharetra finibus.
-
-Suspendisse efficitur nisi ut porta cursus. Donec vel dictum nisl. Duis vel odio ultrices, vehicula nulla vel, dignissim justo. Donec felis est, aliquam aliquam nisl quis, rhoncus ornare lacus. Vivamus commodo nec nunc eget tristique. In hac habitasse platea dictumst. Maecenas iaculis consectetur ex ornare consectetur. In non faucibus risus, sit amet tincidunt lacus. Suspendisse luctus mattis vulputate. Donec luctus porta mi. Proin bibendum ut nunc in finibus.
-
-Vivamus aliquam mattis urna, et vulputate ipsum finibus et. Morbi porttitor sapien ex, at commodo nibh fermentum sit amet. Vestibulum iaculis erat eu tellus dignissim, sit amet imperdiet massa tincidunt. Curabitur dictum, neque et placerat ultricies, odio est semper sapien, eget pulvinar felis diam et odio. Aliquam erat volutpat. Etiam tincidunt pellentesque augue quis ultricies. Suspendisse lectus odio, interdum in condimentum vel, auctor sed purus. Praesent iaculis dapibus lectus quis lobortis. Pellentesque commodo nulla sed accumsan aliquam. Mauris eu mi quam. Nunc rutrum risus pharetra mattis tincidunt.
+	<div class="project-data-card">
+		<div class="label">Status</div>
+		<div class="data">{{ selectedProject.status }}</div>
+	</div>
+	<div class="project-data-card">
+		<div class="label">Category</div>
+		<div class="data">{{ selectedProject.category }}</div>
+	</div>
+	<div class="project-data-card">
+		<div class="label">Lead Staff</div>
+		<div class="data">
+			<div class="staff" ng-repeat="staff in selectedProject.lead_staff"> {{ staff }} </div>
+		</div>
+	</div>
+	<div class="project-data-card">
+		<div class="label">Assisting Staff</div>
+		<div class="data">
+			<div class="staff" ng-repeat="staff in selectedProject.assisting_staff"> {{ staff }} </div>
+		</div>
+	</div>
 </section>
