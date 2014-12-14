@@ -1,5 +1,6 @@
 app.config(function($stateProvider){
 	$stateProvider
+		//	project Routes
 	    .state('projects', {
 	      	url: "/projects",
 	      	templateUrl: "app/projects/partials/project_dashboard.html",
@@ -14,5 +15,13 @@ app.config(function($stateProvider){
 	      	url: "/projects/:projectId",
 	      	templateUrl: "app/projects/partials/project_detail.html",
 	      	controller: "ProjectDetailCtrl",
-	    });
+	    })
+	    // 	staff Routes
+	    .state('staff', {
+	      	url: "/staff",
+	      	templateUrl: "app/staff/partials/staff_dashboard.html",
+	      	controller: "StaffCtrl",
+	    })
+	    //	client Routes
+	;
 });
