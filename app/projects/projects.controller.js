@@ -1,31 +1,23 @@
-projectsModule.run(['$rootScope','Project' , function($rootScope, Project){
+projectsModule.run(['$rootScope', 'Project', function($rootScope, Project){
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-		console.log("Going to state ->", toState.name);
-
 		// Remove selected Project is moving away from detail page.
 		if (toState.name != "projectDetail") {
 			$rootScope.selectedProject = 0;
 		}
 
-		// Fetch list of projects and set section to project
-		var goingToProjectState = toState.name == "projects" || toState.name == "projectCreate" || toState.name == "projectDetail";
-		if (goingToProjectState){
-			$rootScope.section = 'projects';
-			if(!$rootScope.projects) {
-				Project.getList().then(function(response){
-					$rootScope.projects = response.data.objects;
-				});
-			}
+		if(!$rootScope.projects) {
+			Project.getList().then(function(response){
+				$rootScope.projects = response.data.objects;
+			});
 		}
 	});
 }]);
 
-projectsModule.controller('ProjectsCtrl', ['$rootScope','Project', function($rootScope,$scope,Project) {
+projectsModule.controller('ProjectsCtrl', ['$rootScope','$scope','Project', function($rootScope,$scope,Project) {
 	window.scope = $rootScope;
 }]);
 
 projectsModule.controller('ProjectCreateCtrl', ['$rootScope','Project','$compile', '$scope', function($rootScope,Project,$compile,$scope) {
-
 	Project.getForm().then(function(response){
 		var html = response.data;
 		var linkToScope = $compile(html);
