@@ -1,1 +1,13 @@
-signup.html
+<div class="auth-form-container">
+	<div class="title">Sign Up</div>
+	<form ua-signup>
+		<input name="login" placeholder="Username"><br>
+		<input name="password" placeholder="Password" type="password"><br>
+		<input name="first_name" placeholder="First Name"><br>
+		<input name="last_name" placeholder="Last Name"><br>
+		<input name="email" placeholder="Email"><br>
+		<br>
+		<button class="signup" type="submit">Sign Up</button>
+		<p class="error" ng-show="error"> <i class="fa fa-bullhorn"></i>{{ error.message }}</p>
+	</form>
+</div>

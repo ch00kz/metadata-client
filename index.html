@@ -22,9 +22,9 @@
 		<header class="z-depth-1" id="header">
 			<div id="sidebar-logo">MetaData</div>
 			<div id="header-nav">
-				<a ng-class="{ 'selected': section == 'projects' }" ui-sref="projects"><i class="fa fa-briefcase left"></i> Projects</a>
-				<a ng-class="{ 'selected': section == 'staff' }" ui-sref="staff"> <i class="fa fa-child left"></i> Staff</a>
-				<a ng-class="{ 'selected': section == 'clients' }"><i class="fa fa-group left"></i> Clients</a>
+				<a ng-class="{ 'selected': section == 'projects' && user.authenticated }" ui-sref="projects"><i class="fa fa-briefcase left"></i> Projects</a>
+				<a ng-class="{ 'selected': section == 'staff' && user.authenticated }" ui-sref="staff"> <i class="fa fa-child left"></i> Staff</a>
+				<a ng-class="{ 'selected': section == 'clients' && user.authenticated }"><i class="fa fa-group left"></i> Clients</a>
 			</div>
 			<div ng-show='user.authenticated' id="user-info">
 				<a class="user">{{ user.first_name }}</a>
@@ -42,7 +42,7 @@
 				</a>
 			</div>
 		</div>
-		<div ui-view id="content" >
+		<div ng-class="{ fullscreen: !user.authenticated }" ui-view id="content">
 		</div>
 	</body>
 

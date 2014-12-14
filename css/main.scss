@@ -15,6 +15,7 @@ body {
 }
 
 @mixin flat-button ($background, $color, $selectedBackground, $selectedColor) {
+	font-family: 'Source Sans Pro', sans-serif;
 	display: inline-block;
 	background-color: $background;
 	color: $color;
@@ -30,6 +31,10 @@ body {
 
  	&:hover {
  		background-color: darken($background, 15%);
+ 	}
+
+ 	&:focus {
+ 		outline: none;
  	}
 
 	.fa {
@@ -48,26 +53,29 @@ body {
 	}
 }
 
-button.login {
+.login {
+	@include flat-button(#58b27e, white, #58b2ab, white);
+	font-size: 14px;
+}
+
+.signup {
+	@include flat-button(#D5C02B, white, #58b2ab, white);
+	font-size: 14px;
+}
+
+.yes {
 	@include flat-button(#58b27e, white, #58b2ab, white);
 }
-button.signup {
+
+.maybe {
 	@include flat-button(#D5C02B, white, #58b2ab, white);
 }
 
-a.yes {
-	@include flat-button(#58b27e, white, #58b2ab, white);
-}
-
-a.maybe {
-	@include flat-button(#D5C02B, white, #58b2ab, white);
-}
-
-a.no{
+.no{
 	@include flat-button(#b2585f, white, #58b2ab, white);
 }
 
-a.user{
+.user{
 	@include flat-button(rgba(0, 0, 0, 0.29), white, #58b2ab, white);
 	line-height: 15px;
 	text-transform: none;
@@ -141,6 +149,10 @@ div#content {
 	right:0;
 	bottom:0;
 	overflow-y: auto;
+
+	&.fullscreen {
+		left: 0px;
+	}
 
 	a.add {
 		@include flat-button(#39A1F4, white, #58b2ab, white);
@@ -386,5 +398,32 @@ form {
 		}
 	}
 
+}
+
+.auth-form-container {
+	.title {
+		padding-top:10px;
+		padding-bottom:10px;
+		font-size: 24px;
+	}
+	.error {
+		padding: 5px;
+		color: #9E9E9E;
+		margin-top:15px;
+		.fa {
+			margin-right: 5px;
+		}
+	}
+	padding: 30px;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	input {
+		height: 30px;
+		font-size: 18px;
+	}
+	button {
+		margin-right: 10px;
+	}
 }
 

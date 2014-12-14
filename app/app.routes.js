@@ -5,9 +5,14 @@ app.config(function($stateProvider,$urlRouterProvider){
 	      	templateUrl: "app/auth/partials/login.html",
 	      	data: { login: true }
 	    })
+	    .state('signup', {
+	      	url: "/sign-up",
+	      	templateUrl: "app/auth/partials/signup.html",
+	      	data: { public: true }
+	    })
 	    .state('dashboard', {
 	      	url: "/dashboard",
-	      	templateUrl: "app/dashboard.html",
+	      	templateUrl: "app/dashboard.html"
 	    })
 		//	project Routes
 	    .state('projects', {
