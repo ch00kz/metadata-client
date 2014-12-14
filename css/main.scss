@@ -14,7 +14,61 @@ body {
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
+@mixin no-select() {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+@mixin rotate($duration) {
+	-webkit-animation-name: spin;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: $duration;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: $duration;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+
+    animation-name: spin;
+    animation-duration: $duration;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+
+
 @mixin flat-button ($background, $color, $selectedBackground, $selectedColor) {
+	@include no-select();
 	font-family: 'Source Sans Pro', sans-serif;
 	display: inline-block;
 	background-color: $background;
@@ -28,6 +82,7 @@ body {
 	position: relative;
 	cursor: pointer;
  	transition: all 0.5s ease-in-out;
+ 	user-select: none;
 
  	&:hover {
  		background-color: darken($background, 15%);
@@ -79,6 +134,7 @@ body {
 	@include flat-button(rgba(0, 0, 0, 0.29), white, #58b2ab, white);
 	line-height: 15px;
 	text-transform: none;
+	bottom: 1px;
 	&:hover {
 		background-color: rgba(0, 0, 0, 0.59);
 	}
@@ -97,7 +153,8 @@ header#header {
 	right: 0;
 	height: $headerHeight;
 
-	div#sidebar-logo {
+	#sidebar-logo {
+		@include no-select();
 		display: inline-block;
 		text-align: center;
 		width: $sidebarWidth;
@@ -105,6 +162,18 @@ header#header {
 		line-height: $headerHeight;
 		font-size: 20px;
 		float: left;
+		color: white;
+		text-decoration: none;
+		.fa {
+			transition: all 0.3s ease-in-out;
+			color: #1EA1C0;
+		}
+		&:hover {
+			.fa {
+				@include rotate(4000ms);
+				color: #1DEC9D;
+			}
+		}
 	}
 
 	#header-nav {
