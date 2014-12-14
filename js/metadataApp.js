@@ -25,16 +25,38 @@ metadataApp.controller('ProjectsController', ['$rootScope','Project', function($
 
 	window.scope = $rootScope;
 }]);
-metadataApp.controller('ProjectCreateController', ['$rootScope','Project','$sce', '$scope', function($rootScope,Project,$sce,$scope) {
-	window.scope = $rootScope;
+
+metadataApp.controller('ProjectCreateController', ['$rootScope','Project','$compile', '$scope', function($rootScope,Project,$compile,$scope) {
+
 	Project.getForm().then(function(response){
-		$rootScope.projectForm = $sce.trustAsHtml(response.data);
+		var html = response.data;
+		var linkToScope = $compile(html);
+        var compiledHTML = linkToScope($scope);
+        $(document).ready(function(){
+	  		$('#create-project-form-container').append(compiledHTML);
+        });
 	});
 
-	$scope.createProject = function(){
-		console.log("Creating project..");
+ 	$scope.createProject = function(){
+		$scope.params = {
+			"name": $scope.name,
+			"category": $scope.category,
+			"currency": $scope.currency,
+			"start_date": $scope.start_date,
+			"status": $scope.status,
+			"value": $scope.value,
+			"department": $scope.department,
+			"clients": $scope.clients,
+			"description": $scope.description,
+			"expected_end_date": $scope.expected_end_date,
+			"actual_end_date": $scope.actual_end_date,
+			"lead_staff": $scope.lead_staff,
+			"assisting_staff": $scope.assisting_staff
+		};
+		console.log($scope.params);
 	};
 
+	window.scope = $scope;
 
 }]);
 metadataApp.controller('ProjectDetailController', ['$rootScope','Project','$stateParams', function($rootScope, Project, $stateParams) {
@@ -49,7 +71,7 @@ metadataApp.controller('ProjectDetailController', ['$rootScope','Project','$stat
 	var content = $("#content")[0];
 	var header = $(content).children('.detail-header')[0];
 	$(content).scroll(function(){
-		if ($(content).scrollTop() > 50) {
+		if ($(content).scrollTop() > 170) {
 			$(header).addClass("shrinkAndFix");
 		} else {
 			$(header).removeClass("shrinkAndFix");
