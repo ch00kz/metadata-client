@@ -13,14 +13,15 @@
 		<script src="app/app.routes.js"></script>
 		<script src="app/projects/projects.controller.js"></script>
 		<script src="app/projects/projects.factory.js"></script>
+		<script src="app/staff/staff.controller.js"></script>
 	</head>
 	<body>
 		<header class="z-depth-1" id="header">
 			<div id="sidebar-logo">MetaData</div>
 			<div id="header-nav">
 				<a ng-class="{ 'selected': section == 'projects' }" ui-sref="projects"><i class="fa fa-briefcase left"></i> Projects</a>
-				<a><i class="fa fa-child left"></i> Staff</a>
-				<a><i class="fa fa-group left"></i> Clients</a>
+				<a ng-class="{ 'selected': section == 'staff' }" ui-sref="staff"> <i class="fa fa-child left"></i> Staff</a>
+				<a ng-class="{ 'selected': section == 'clients' }"><i class="fa fa-group left"></i> Clients</a>
 			</div>
 		</header>
 		<div class="z-depth-1" id="sidebar">
