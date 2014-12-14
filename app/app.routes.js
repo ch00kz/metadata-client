@@ -1,5 +1,14 @@
-app.config(function($stateProvider){
+app.config(function($stateProvider,$urlRouterProvider){
 	$stateProvider
+	 	.state('login', {
+	      	url: "/login",
+	      	templateUrl: "app/auth/partials/login.html",
+	      	data: { login: true }
+	    })
+	    .state('dashboard', {
+	      	url: "/dashboard",
+	      	templateUrl: "app/dashboard.html",
+	    })
 		//	project Routes
 	    .state('projects', {
 	      	url: "/projects",
@@ -22,6 +31,6 @@ app.config(function($stateProvider){
 	      	templateUrl: "app/staff/partials/staff_dashboard.html",
 	      	controller: "StaffCtrl",
 	    })
-	    //	client Routes
 	;
+	$urlRouterProvider.otherwise('/dashboard');
 });

@@ -48,6 +48,13 @@ body {
 	}
 }
 
+button.login {
+	@include flat-button(#58b27e, white, #58b2ab, white);
+}
+button.signup {
+	@include flat-button(#D5C02B, white, #58b2ab, white);
+}
+
 a.yes {
 	@include flat-button(#58b27e, white, #58b2ab, white);
 }
@@ -58,6 +65,19 @@ a.maybe {
 
 a.no{
 	@include flat-button(#b2585f, white, #58b2ab, white);
+}
+
+a.user{
+	@include flat-button(rgba(0, 0, 0, 0.29), white, #58b2ab, white);
+	line-height: 15px;
+	text-transform: none;
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.59);
+	}
+}
+
+a.logout{
+	@include flat-button(#FD7373, white, #58b2ab, white);
 }
 
 header#header {
@@ -88,7 +108,21 @@ header#header {
 			top: 7px;
 		}
 	}
+
+	#user-info{
+		float: right;
+		height: $headerHeight;
+		line-height: $headerHeight;
+		padding-right: 30px;
+
+		a {
+			margin-left:5px;
+			height: 15px;
+			line-height: 12px;
+		}
+	}
 }
+
 
 #sidebar {
 	background: $sidebarBg;

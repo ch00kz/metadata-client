@@ -1,9 +1,11 @@
-var app = angular.module('app', ['projectsModule','staffModule']);
+var app = angular.module('app', ['projectsModule','staffModule','UserApp']);
 // Include these models in main module
-var projectsModule = angular.module('projectsModule', ['ui.router','ngResource','ngSanitize']);
-var staffModule = angular.module('staffModule', ['ui.router','ngResource','ngSanitize']);
+var projectsModule = angular.module('projectsModule', ['ui.router','ngResource','ngSanitize','UserApp']);
+var staffModule = angular.module('staffModule', ['ui.router','ngResource','ngSanitize','UserApp']);
 
-app.run(['$rootScope','Project' , function($rootScope, Project){
+app.run(['$rootScope','Project' ,'user', function($rootScope, Project, user){
+	// UserApp init
+	user.init({ appId: '548dbea12fbc1' });
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
 		console.log("Going to state ->", toState.name);
 

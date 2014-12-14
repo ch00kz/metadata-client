@@ -3,8 +3,11 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<!-- libraries -->
+
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular.min.js"></script>
+      	<script src="https://app.userapp.io/js/userapp.client.js"></script>
+		<script src="https://app.userapp.io/js/angularjs.userapp.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-resource.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.1/angular-sanitize.js"></script>
 		<script src="lib/angular-ui-router.min.js"></script>
@@ -23,8 +26,13 @@
 				<a ng-class="{ 'selected': section == 'staff' }" ui-sref="staff"> <i class="fa fa-child left"></i> Staff</a>
 				<a ng-class="{ 'selected': section == 'clients' }"><i class="fa fa-group left"></i> Clients</a>
 			</div>
+			<div ng-show='user.authenticated' id="user-info">
+				<a class="user">{{ user.first_name }}</a>
+				<a href="" class="maybe"><i class="fa fa-cog"></i></a>
+				<a ua-logout href="" class="logout"><i class="fa fa-remove"></i></a>
+			</div>
 		</header>
-		<div class="z-depth-1" id="sidebar">
+		<div ng-show='user.authenticated' class="z-depth-1" id="sidebar">
 			<input id="search" ng-model="query" placeholder="&#xF002;">
 			<div ng-show="section == 'projects'" ng-repeat="project in projects | filter: query">
 				<a ui-sref="projectDetail({ projectId: project.id })" class="card"
