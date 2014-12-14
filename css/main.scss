@@ -4,6 +4,7 @@ $sidebarWidth: 300px;
 
 $headerHeight: 50px;
 
+$headingTransitionTime: 0.5s;
 // colors
 $headerBg: #b2585f;
 $sidebarBg: #eeeeee;
@@ -25,7 +26,12 @@ body {
 	text-decoration: none;
 	position: relative;
 	cursor: pointer;
- 	transition: all 0.2s ease-in-out;
+ 	transition: all 0.5s ease-in-out;
+
+ 	&:hover {
+ 		background-color: darken($background, 15%);
+ 	}
+
 	.fa {
 		color: white;
 		&.right {
@@ -44,6 +50,10 @@ body {
 
 a.yes {
 	@include flat-button(#58b27e, white, #58b2ab, white);
+}
+
+a.maybe {
+	@include flat-button(#D5C02B, white, #58b2ab, white);
 }
 
 a.no{
@@ -107,7 +117,8 @@ div#content {
 		color: white;
 		background: #3D84E2;
 		position: fixed;
-		height: 30px;
+		height: 12px;
+		line-height: 12px;
 		padding: 20px;
 		top: 50px;
 		left: 301px;
@@ -118,16 +129,22 @@ div#content {
 
 	.page-section {
 		padding: 10px;
-		padding-top: 80px;
+		&.with-header {
+			padding-top: 80px;
+		}
 	}
 
 	.detail-header {
 		padding: 20px;
-		position:relative;
-		left: 1px;
+		position: fixed;
+		height: 12px;
+		top: 50px;
+		left: 301px;
+		right: 0px;
 		color: white;
 		background: #3D84E2;
 		height: 150px;
+		transition: all $headingTransitionTime ease-in-out;
 
 		.title {
 			font-weight:600;
@@ -139,9 +156,20 @@ div#content {
 			font-weight: 300;
 		}
 
+		.project-controls {
+			position: absolute;
+			top: 140px;
+			right: 30px;
+			transition: all $headingTransitionTime ease-in-out;
+			a {
+				margin-left: 10px;
+			}
+		}
+
 		&.shrinkAndFix {
 			position: fixed;
-			height: 30px;
+			height: 12px;
+			line-height: 12px;
 			top: 50px;
 			left: 301px;
 			right: 0px;
@@ -149,11 +177,18 @@ div#content {
 			.data {
 				display: none;
 			}
+
+			.project-controls {
+				line-height: 21px !important;
+				transition: all $headingTransitionTime ease-in-out;
+				top: 8px;
+			}
 		}
 	}
 
 	.detail-section {
 		padding: 10px;
+		padding-top: 220px;
 	}
 }
 
