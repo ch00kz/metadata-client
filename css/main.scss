@@ -6,7 +6,7 @@ $headerHeight: 50px;
 
 $headingTransitionTime: 0.5s;
 // colors
-$headerBg: #b2585f;
+$headerBg: #4994A1;
 $sidebarBg: #eeeeee;
 
 body {
@@ -180,7 +180,7 @@ header#header {
 		padding-left: 10px;
 		display: inline-block;
 		a {
-			@include flat-button(rgba(0,0,0,0), white, #58b27e, white);
+			@include flat-button(rgba(0,0,0,0), white, rgba(0, 0, 0, 0.45), white);
 			top: 7px;
 		}
 	}
@@ -229,7 +229,7 @@ div#content {
 
 	.page-header {
 		color: white;
-		background: #3D84E2;
+		background: #4968a1;
 		position: fixed;
 		height: 12px;
 		line-height: 12px;
@@ -250,14 +250,9 @@ div#content {
 
 	.detail-header {
 		padding: 20px;
-		position: fixed;
-		top: 50px;
-		left: 301px;
-		right: 0px;
 		color: white;
-		background: #3D84E2;
-		height: auto;
-		max-height: 400px;
+		background: #4968a1;
+		max-height: 700px;
 		transition: all $headingTransitionTime ease-in-out;
 
 		.title {
@@ -316,9 +311,9 @@ div#content {
 		}
 
 		&.shrinkAndFix {
-			position: fixed;
 			max-height: 12px;
 			line-height: 12px;
+			position:fixed;
 			top: 50px;
 			left: 301px;
 			right: 0px;
@@ -337,34 +332,58 @@ div#content {
 	}
 
 	.detail-section {
-		padding-top: 220px;
+		padding: 10px;
 
-		.project-data-card {
-			border-radius: 3px;
-			display: inline-block;
-			width: 43%;
-			padding: 10px 15px;
-			border:1px solid #eee;
-			margin-bottom: 10px;
-			&:nth-child(odd){
-				margin-right: 1%;
-				margin-left: 2%;
-			}
+		#project-cards {
+			overflow: hidden;
 
-			.label {
-				font-weight: 600;
-			}
-			.data {
-				.staff {
-					display: inline-block;
-					padding: 3px 10px;
-					border-radius: 2px;
-					background-color: #F4F4F4;
-					margin-right: 6px;
-					margin-top:4px;
+			.project-data-card {
+				border-radius: 3px;
+				float: right;
+				width: 49%;
+				border:1px solid #eee;
+				margin-bottom: 10px;
+
+				&:nth-child(odd){
+					float: left;
+				}
+
+				.label {
+					padding: 5px 10px;
+					font-weight: 600;
+				}
+
+				.data {
+					padding: 5px 10px;
+					.staff {
+						display: inline-block;
+						padding: 3px 10px;
+						border-radius: 2px;
+						background-color: #F4F4F4;
+						margin-right: 6px;
+						margin-top:4px;
+					}
 				}
 			}
+		}
 
+		#project-logs {
+			display:block;
+			width: 100%;
+			.title {
+				font-size: 18px;
+				padding: 5px 10px;
+				font-weight: 600;
+			}
+
+			.project-log {
+				margin: auto;
+				border-radius:2px;
+				width: 100%;
+				height: 50px;
+				border: 1px solid #eee;
+				margin-bottom: 5px;
+			}
 		}
 	}
 }

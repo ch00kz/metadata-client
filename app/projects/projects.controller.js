@@ -61,10 +61,18 @@ projectsModule.controller('ProjectDetailCtrl', ['$rootScope','Project','$statePa
 	//shrink header for details container
 	var content = $("#content")[0];
 	var header = $(content).children('.detail-header')[0];
+	var title = $(header).children('.title')[0];
+	var originalHeight = $(header).height();
 	$(content).scroll(function(){
-		if ($(content).scrollTop() > 170) {
-			$(header).addClass("shrinkAndFix");
-		} else {
+		var scrollAmount = $(content).scrollTop();
+		if (!($(header).hasClass('shrinkAndFix'))) {
+			if ($(title).offset().top < 43)
+			{
+				$(header).addClass("shrinkAndFix");
+			}
+		}
+		if (scrollAmount == 0){
+			$(header).height(originalHeight);
 			$(header).removeClass("shrinkAndFix");
 		}
 	});

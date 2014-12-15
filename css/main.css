@@ -278,7 +278,7 @@ a.logout {
 
 header#header {
   color: #fff;
-  background: #b2585f;
+  background: #4994A1;
   position: absolute;
   top: 0;
   left: 0;
@@ -357,7 +357,7 @@ header#header {
         header#header #header-nav a .fa.left {
           margin-right: 5px; }
       header#header #header-nav a.selected {
-        background-color: #58b27e;
+        background-color: rgba(0, 0, 0, 0.45);
         color: white; }
   header#header #user-info {
     float: right;
@@ -424,7 +424,7 @@ div#content {
       color: white; }
   div#content .page-header {
     color: white;
-    background: #3D84E2;
+    background: #4968a1;
     position: fixed;
     height: 12px;
     line-height: 12px;
@@ -440,14 +440,9 @@ div#content {
       padding-top: 80px; }
   div#content .detail-header {
     padding: 20px;
-    position: fixed;
-    top: 50px;
-    left: 301px;
-    right: 0px;
     color: white;
-    background: #3D84E2;
-    height: auto;
-    max-height: 400px;
+    background: #4968a1;
+    max-height: 700px;
     transition: all 0.5s ease-in-out; }
     div#content .detail-header .title {
       font-weight: 600;
@@ -485,9 +480,9 @@ div#content {
       div#content .detail-header .project-controls a {
         margin-left: 10px; }
     div#content .detail-header.shrinkAndFix {
-      position: fixed;
       max-height: 12px;
       line-height: 12px;
+      position: fixed;
       top: 50px;
       left: 301px;
       right: 0px;
@@ -499,26 +494,43 @@ div#content {
         transition: all 0.5s ease-in-out;
         top: 8px; }
   div#content .detail-section {
-    padding-top: 220px; }
-    div#content .detail-section .project-data-card {
-      border-radius: 3px;
-      display: inline-block;
-      width: 43%;
-      padding: 10px 15px;
-      border: 1px solid #eee;
-      margin-bottom: 10px; }
-      div#content .detail-section .project-data-card:nth-child(odd) {
-        margin-right: 1%;
-        margin-left: 2%; }
-      div#content .detail-section .project-data-card .label {
+    padding: 10px; }
+    div#content .detail-section #project-cards {
+      overflow: hidden; }
+      div#content .detail-section #project-cards .project-data-card {
+        border-radius: 3px;
+        float: right;
+        width: 49%;
+        border: 1px solid #eee;
+        margin-bottom: 10px; }
+        div#content .detail-section #project-cards .project-data-card:nth-child(odd) {
+          float: left; }
+        div#content .detail-section #project-cards .project-data-card .label {
+          padding: 5px 10px;
+          font-weight: 600; }
+        div#content .detail-section #project-cards .project-data-card .data {
+          padding: 5px 10px; }
+          div#content .detail-section #project-cards .project-data-card .data .staff {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 2px;
+            background-color: #F4F4F4;
+            margin-right: 6px;
+            margin-top: 4px; }
+    div#content .detail-section #project-logs {
+      display: block;
+      width: 100%; }
+      div#content .detail-section #project-logs .title {
+        font-size: 18px;
+        padding: 5px 10px;
         font-weight: 600; }
-      div#content .detail-section .project-data-card .data .staff {
-        display: inline-block;
-        padding: 3px 10px;
+      div#content .detail-section #project-logs .project-log {
+        margin: auto;
         border-radius: 2px;
-        background-color: #F4F4F4;
-        margin-right: 6px;
-        margin-top: 4px; }
+        width: 100%;
+        height: 50px;
+        border: 1px solid #eee;
+        margin-bottom: 5px; }
 
 .card {
   text-decoration: none;
