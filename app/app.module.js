@@ -5,7 +5,10 @@ var staffModule = angular.module('staffModule', ['ui.router','ngResource','ngSan
 
 app.run(['$rootScope','Project' ,'user', function($rootScope, Project, user){
 	// UserApp init
-	user.init({ appId: '548dbea12fbc1' });
+	user.init({
+		appId: '548dbea12fbc1',
+		heartbeatInterval: 1800000,
+	});
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
 		console.log("Going to state ->", toState.name);
 
