@@ -126,6 +126,10 @@ body {
 	@include flat-button(#D5C02B, white, #58b2ab, white);
 }
 
+.settings {
+	@include flat-button(#2DAEFD, white, #58b2ab, white);
+}
+
 .no{
 	@include flat-button(#b2585f, white, #58b2ab, white);
 }
@@ -141,7 +145,7 @@ body {
 }
 
 a.logout{
-	@include flat-button(#FD7373, white, #58b2ab, white);
+	@include flat-button(#D75A5A, white, #58b2ab, white);
 }
 
 header#header {
@@ -332,12 +336,14 @@ div#content {
 	}
 
 	.detail-section {
+		background-color: #f9f9f9;
 		padding: 10px;
 
 		#project-cards {
 			overflow: hidden;
 
 			.project-data-card {
+				background: white;
 				border-radius: 3px;
 				float: right;
 				width: 49%;
@@ -358,8 +364,8 @@ div#content {
 					.staff {
 						display: inline-block;
 						padding: 3px 10px;
-						border-radius: 2px;
-						background-color: #F4F4F4;
+						border-radius: 15px;
+						background-color: #B0D8FF;
 						margin-right: 6px;
 						margin-top:4px;
 					}
@@ -370,6 +376,7 @@ div#content {
 		#project-logs {
 			display:block;
 			width: 100%;
+			background: #fff;
 			.title {
 				font-size: 18px;
 				padding: 5px 10px;
@@ -382,6 +389,7 @@ div#content {
 				width: 100%;
 				height: 50px;
 				border: 1px solid #eee;
+				border-left: 2px solid #FFCB00;
 				margin-bottom: 5px;
 			}
 		}
@@ -406,7 +414,7 @@ div#content {
 		font-weight: 300;
 	}
 	&.selected {
-		background: #5E5E5E;
+		background: #9E6473;
 		.name {
 			color: white;
 		}
