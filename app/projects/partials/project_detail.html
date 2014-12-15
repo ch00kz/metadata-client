@@ -13,24 +13,32 @@
 	</div>
 </header>
 <section class="detail-section">
-	<div class="project-data-card">
-		<div class="label">Status</div>
-		<div class="data">{{ selectedProject.status }}</div>
-	</div>
-	<div class="project-data-card">
-		<div class="label">Category</div>
-		<div class="data">{{ selectedProject.category }}</div>
-	</div>
-	<div class="project-data-card">
-		<div class="label">Lead Staff</div>
-		<div class="data">
-			<div class="staff" ng-repeat="staff in selectedProject.lead_staff"> {{ staff }} </div>
+	<section id="project-cards">
+		<div class="project-data-card">
+			<div class="label">Status</div>
+			<div class="data">{{ selectedProject.status }}</div>
 		</div>
-	</div>
-	<div class="project-data-card">
-		<div class="label">Assisting Staff</div>
-		<div class="data">
-			<div class="staff" ng-repeat="staff in selectedProject.assisting_staff"> {{ staff }} </div>
+		<div class="project-data-card">
+			<div class="label">Category</div>
+			<div class="data">{{ selectedProject.category }}</div>
 		</div>
-	</div>
+		<div class="project-data-card">
+			<div class="label">Lead Staff</div>
+			<div class="data">
+				<div class="staff" ng-repeat="staff in selectedProject.lead_staff"> {{ staff }} </div>
+			</div>
+		</div>
+		<div class="project-data-card">
+			<div class="label">Assisting Staff</div>
+			<div class="data">
+				<div class="staff" ng-repeat="staff in selectedProject.assisting_staff"> {{ staff }} </div>
+			</div>
+		</div>
+	</section>
+	<section id="project-logs">
+		<div id="project-logs-container">
+			<div ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12,13]" class="project-log">
+			</div>
+		</div>
+	</section>
 </section>
