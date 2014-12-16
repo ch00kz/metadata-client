@@ -14,20 +14,22 @@ app.run(['$rootScope','Project' ,'user', function($rootScope, Project, user){
 		appId: '548dbea12fbc1',
 		heartbeatInterval: 1200000,
 	});
+
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-		console.log("Going to state ->", toState.name);
-
-		var goingToProjectState = toState.name == "projects" || toState.name == "projectCreate" || toState.name == "projectDetail";
-		var goingToStaffState = toState.name == "staff";
-
-		if (goingToProjectState){
-			$rootScope.section = 'projects';
-		}
-		else if (goingToStaffState) {
-			$rootScope.section = 'staff';
+		console.log("Trying state ->", toState.name);
+		if (!user.current.authenticated) {
+			$rootScope.section = undefined;
 		}
 		else {
-			console.log("Where are you going?");
+			var goingToProjectState = toState.name == "projects" || toState.name == "projectCreate" || toState.name == "projectDetail";
+			var goingToStaffState = toState.name == "staff";
+
+			if (goingToProjectState){
+				$rootScope.section = 'projects';
+			}
+			else if (goingToStaffState) {
+				$rootScope.section = 'staff';
+			}
 		}
 	});
 }]);
