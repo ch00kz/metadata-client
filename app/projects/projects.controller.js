@@ -69,11 +69,13 @@ projectsModule.controller('ProjectDetailCtrl', ['$rootScope','Project','$statePa
 			if ($(title).offset().top < 43)
 			{
 				$(header).addClass("shrinkAndFix");
+				$(header).parent().css('padding-top', originalHeight - 43);
 			}
 		}
 		if (scrollAmount == 0){
-			$(header).height(originalHeight);
+			// $(header).height(originalHeight);
 			$(header).removeClass("shrinkAndFix");
+			$(header).parent().css('padding-top', 0);
 		}
 	});
 
