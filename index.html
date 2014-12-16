@@ -31,17 +31,31 @@
 				<a ua-logout href="" class="logout"><i class="fa fa-remove"></i></a>
 			</div>
 		</header>
-		<div ng-show='user.authenticated' class="z-depth-1" id="sidebar">
+
+		<div id="sidebar" ng-class="{ showSidebar : user.authenticated && section != 'dashboard' }" class="z-depth-1" >
 			<input id="search" ng-model="query" placeholder="&#xF002;">
-			<div ng-show="section == 'projects'" ng-repeat="project in projects | filter: query">
-				<a ui-sref="projectDetail({ projectId: project.id })" class="card"
+
+			<div class="card-collection" ng-show="section == 'projects'">
+				<a ng-repeat="project in projects | filter: query" ui-sref="projectDetail({ projectId: project.id })" class="card"
 					ng-class="{ 'selected': selectedProject.id == project.id }">
 					<div class="name">{{ project.name }}</div>
 					<div class="description"> A short description will go here </div>
 				</a>
 			</div>
+
+			<div class="card-collection" ng-show="section == 'staff'">
+			</div>
+
+			<div class="card-collection" ng-show="section == 'clients'">
+			</div>
+
+			<footer id="sidebar-button-container">
+				<a ui-sref="projectCreate" class="yes" ng-show="section == 'projects'"><i class="fa fa-plus"></i></a>
+				<a class="yes" ng-show="section == 'staff'"><i class="fa fa-plus"></i></a>
+				<a class="yes" ng-show="section == 'clients'"><i class="fa fa-plus"></i></a>
+			</footer>
 		</div>
-		<div ng-class="{ fullscreen: !user.authenticated }" ui-view id="content">
+		<div ng-class="{ fullscreen: !user.authenticated || section == 'dashboard' }" ui-view id="content">
 		</div>
 	</body>
 
