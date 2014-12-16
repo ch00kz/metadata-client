@@ -3,6 +3,11 @@ var app = angular.module('app', ['projectsModule','staffModule','UserApp']);
 var projectsModule = angular.module('projectsModule', ['ui.router','ngResource','ngSanitize','UserApp']);
 var staffModule = angular.module('staffModule', ['ui.router','ngResource','ngSanitize','UserApp']);
 
+app.controller('dashboardCtrl', ['$rootScope', function($rootScope) {
+	window.scope = $rootScope;
+	$rootScope.section = 'dashboard';
+}]);
+
 app.run(['$rootScope','Project' ,'user', function($rootScope, Project, user){
 	// Set heartbeat extend TTL by 20 minutes
 	user.init({
