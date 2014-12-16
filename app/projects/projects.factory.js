@@ -1,7 +1,8 @@
 projectsModule.factory('Project', ['$http', function($http){
+    var url = "http://localhost:8000";
     return {
     	getList: function() {
-    		var projectUrl = "http://104.236.6.55:8000/api/v1/project/";
+    		var projectUrl = url + "/api/v1/project/";
 
     		var promise = $http({
     			url: projectUrl,
@@ -10,7 +11,7 @@ projectsModule.factory('Project', ['$http', function($http){
     		return promise;
     	},
     	getDetails: function(id) {
-    		var projectUrl = "http://104.236.6.55:8000/api/v1/project/" + id + "/";
+    		var projectUrl = url + "/api/v1/project/" + id + "/";
     		var promise = $http({
     			url: projectUrl,
     			method: "GET",
@@ -18,7 +19,7 @@ projectsModule.factory('Project', ['$http', function($http){
     		return promise;
     	},
     	getForm: function(id) {
-    		var formUrl = "http://104.236.6.55:8000/form-project/";
+    		var formUrl = url + "/form-project/";
     		var promise = $http({
     			url: formUrl,
     			method: "GET",
