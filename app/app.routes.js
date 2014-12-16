@@ -12,7 +12,8 @@ app.config(function($stateProvider,$urlRouterProvider){
 	    })
 	    .state('dashboard', {
 	      	url: "/dashboard",
-	      	templateUrl: "app/dashboard.html"
+	      	templateUrl: "app/dashboard.html",
+	      	controller: "dashboardCtrl",
 	    })
 		//	project Routes
 	    .state('projects', {
