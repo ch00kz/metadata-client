@@ -4,10 +4,10 @@ var projectsModule = angular.module('projectsModule', ['ui.router','ngResource',
 var staffModule = angular.module('staffModule', ['ui.router','ngResource','ngSanitize','UserApp']);
 
 app.run(['$rootScope','Project' ,'user', function($rootScope, Project, user){
-	// UserApp init
+	// Set heartbeat extend TTL by 20 minutes
 	user.init({
 		appId: '548dbea12fbc1',
-		heartbeatInterval: 1800000,
+		heartbeatInterval: 1200000,
 	});
 	$rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
 		console.log("Going to state ->", toState.name);
