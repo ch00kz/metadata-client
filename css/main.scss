@@ -219,7 +219,7 @@ header#header {
 	}
 
 	.card-collection {
-		background: #F9F9F9;
+		background: #E4E4E4;
 		height: calc(100% - 86px);
 		overflow-y: auto;
 	}
@@ -227,34 +227,54 @@ header#header {
 	.card {
 		text-decoration:none;
 		display:block;
+		border: 1px solid #CBCBCB;
+		margin: auto;
+		width: 90%;
 		background:#fff;
-		border-top: 1px solid #D2D2D2;
-		border-bottom: 1px solid #D2D2D2;
 		padding: 10px;
 		cursor: pointer;
+		margin-bottom: 5px;
+		border-radius: 2px;
 		.name {
 			color: #3C3C3C;
+			font-size: 18px;
 			font-weight: 600;
 			margin-bottom: 5px;
 		}
+		.indicator{
+			float: right;
+			transition: all 0.3s ease-in-out;
+			color:rgba(0,0,0,0);
+			font-size: 30px;
+			position: relative;
+			bottom: 13px;
+			left: 10px;
+		}
 		.description {
 			color: silver;
+			font-size: 12px;
 			font-weight: 300;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			.fa {
+				font-size: 4px;
+				margin: 0px 5px;
+				position: relative;
+				bottom: 5px;
+			}
 		}
 		&.selected {
-			background: #6F6F6F;
-			.name {
-				color: white;
-			}
-			.description {
-				color: #E4E4E4;
+			.indicator {
+				color: rgb(215, 0, 0);
 			}
 		}
 		&:first-child {
-			border-top: none;
+			margin-top: 2px;
 		}
 		&:not(:last-child) {
-			border-bottom: none;
+			margin-bottom: none;
 		}
 	}
 
@@ -272,6 +292,7 @@ header#header {
 
 div#content {
 	position: absolute;
+	background-color: #f9f9f9;
 	top: $headerHeight;
 	left: $sidebarWidth + 1px;
 	right:0;
@@ -309,19 +330,32 @@ div#content {
 	}
 
 	.detail-header {
-		padding: 20px;
+		padding: 20px 0px;
+		margin: 10px auto;
+		width: 98%;
+		border-radius: 2px;
 		color: white;
 		background: #4968a1;
 		max-height: 700px;
 		transition: max-height 0.5s ease-in-out;
 
+		.project-controls {
+			position: absolute;
+			top: 30px;
+			right: 20px;
+			a {
+				margin-left: 10px;
+			}
+		}
+
 		&.shrinkAndFix {
+			width: auto;
 			max-height: 12px;
 			line-height: 12px;
 			position:fixed;
-			top: 50px;
-			left: 301px;
-			right: 0px;
+			top: 45px;
+			right: 26px;
+			left: 311px;
 			transition: max-height 1s ease-in-out;
 
 			.data {
@@ -330,13 +364,13 @@ div#content {
 
 			.project-controls {
 				line-height: 21px !important;
-				transition: all $headingTransitionTime ease-in-out;
 				top: 8px;
+				right: 12px;
 			}
 		}
 
 		.title {
-			font-weight:600;
+			padding-left: 20px;
 			font-size: 25px;
 			span {
 				position: relative;
@@ -346,6 +380,7 @@ div#content {
 		}
 
 		.data {
+			padding-left: 20px;
 			margin-top:10px;
 			font-weight: 300;
 		}
@@ -379,21 +414,11 @@ div#content {
 				}
 			}
 		}
-
-		.project-controls {
-			position: absolute;
-			top: 15px;
-			right: 30px;
-			transition: all $headingTransitionTime ease-in-out;
-			a {
-				margin-left: 10px;
-			}
-		}
 	}
 
 	.detail-section {
 		background-color: #f9f9f9;
-		padding: 10px;
+		padding: 0px 10px;
 
 		#project-cards {
 			overflow: hidden;

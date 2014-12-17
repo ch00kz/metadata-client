@@ -38,8 +38,9 @@
 			<div class="card-collection" ng-show="section == 'projects'">
 				<a ng-repeat="project in projects | filter: query" ui-sref="projectDetail({ projectId: project.id })" class="card"
 					ng-class="{ 'selected': selectedProject.id == project.id }">
+					<i class="fa fa-bookmark indicator"></i>
 					<div class="name">{{ project.name }}</div>
-					<div class="description"> A short description will go here </div>
+					<div class="description">{{ project.status }} <i class="fa fa-circle"></i> {{ project.category }} <span ng-repeat="dept in project.departments"><i class="fa fa-circle"></i> {{ dept }}</span></div>
 				</a>
 			</div>
 

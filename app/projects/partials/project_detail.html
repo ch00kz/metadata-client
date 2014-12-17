@@ -1,9 +1,9 @@
 <header class="detail-header">
 	<div ng-show="selectedProject.name" class="title">{{ selectedProject.name }}</div>
 	<div ng-show="selectedProject.description" class="data description">{{ selectedProject.description }}</div>
-	<div ng-show="selectedProject.value" class="data currency"> <span>{{ selectedProject.currency }}</span> ${{ selectedProject.value }}  </div>
-	<div ng-show="selectedProject.start_date" class="data date start"><i class="fa fa-calendar"></i> {{ selectedProject.start_date }}</div>
-	<div ng-show="selectedProject.start_date" class="data date end"><i class="fa fa-calendar"></i> {{ selectedProject.expected_end_date }}</div>
+	<div ng-show="selectedProject.value" class="data currency"> <span>{{ selectedProject.currency }}</span> $ {{ selectedProject.value }}  </div>
+	<div ng-show="selectedProject.start_date" class="data date start"><i class="fa fa-calendar-o"></i> {{ selectedProject.start_date }}</div>
+	<div ng-show="selectedProject.start_date" class="data date end"><i class="fa fa-calendar-o"></i> {{ selectedProject.expected_end_date }}</div>
 	<div class="project-controls">
 		<a class="no">Delete Project</a>
 		<a class="maybe">Update Logs</a>
