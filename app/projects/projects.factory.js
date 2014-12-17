@@ -1,6 +1,6 @@
 projectsModule.factory('Project', ['$http', function($http){
-    var url = "http://localhost:8000";
-    // var url = "http://104.236.6.55:8000";
+    // var url = "http://localhost:8000";
+    var url = "http://104.236.6.55:8000";
     return {
     	getList: function() {
     		var projectUrl = url + "/api/v1/project/";
