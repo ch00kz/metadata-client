@@ -10,7 +10,7 @@
 	</div>
 </header>
 <section class="detail-section">
-	<section id="project-cards">
+	<section id="project-data-cards">
 		<div class="project-data-card">
 			<div class="label">Status</div>
 			<div class="data">{{ selectedProject.status }}</div>
@@ -19,19 +19,27 @@
 			<div class="label">Category</div>
 			<div class="data">{{ selectedProject.category }}</div>
 		</div>
-		<div class="project-data-card">
-			<div class="label">Lead Staff</div>
-			<div class="data">
-				<div class="staff" ng-repeat="staff in selectedProject.lead_staff"> {{ staff }} </div>
-			</div>
-		</div>
-		<div class="project-data-card">
-			<div class="label">Assisting Staff</div>
-			<div class="data">
-				<div class="staff" ng-repeat="staff in selectedProject.assisting_staff"> {{ staff }} </div>
-			</div>
-		</div>
 	</section>
+
+	<div class="project-staff-card">
+		<div class="label">Departments</div>
+		<div class="data">
+			<div class="staff" ng-repeat="staff in selectedProject.departments"> {{ staff }} </div>
+		</div>
+	</div>
+	<div class="project-staff-card">
+		<div class="label">Clients</div>
+		<div class="data">
+			<div class="staff" ng-repeat="staff in selectedProject.clients"> {{ staff }} </div>
+		</div>
+	</div>
+	<div class="project-staff-card">
+		<div class="label">Staff</div>
+		<div class="data">
+			<div class="lead staff" ng-repeat="staff in selectedProject.lead_staff"> <i class="fa fa-star"></i> {{ staff }} </div>
+			<div class="staff" ng-repeat="staff in selectedProject.assisting_staff"> {{ staff }} </div>
+		</div>
+	</div>
 	<section id="project-logs">
 		<div id="project-logs-container">
 			<div ng-repeat="item in [1,2,3,4,5,6,7,8,9,10,11,12,13]" class="project-log">

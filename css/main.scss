@@ -174,7 +174,7 @@ header#header {
 		&:hover {
 			.fa {
 				@include rotate(4000ms);
-				color: #1DEC9D;
+				color: #d70000;
 			}
 		}
 	}
@@ -420,7 +420,33 @@ div#content {
 		background-color: #f9f9f9;
 		padding: 0px 10px;
 
-		#project-cards {
+		.project-staff-card {
+			background: white;
+			border-radius: 3px;
+			display: block;
+			border:1px solid #eee;
+			margin-bottom: 10px;
+
+			.label {
+				text-transform: uppercase;
+				padding: 5px 10px;
+			}
+			.data {
+				padding: 7px 10px;
+				padding-top: 0px;
+
+				.staff {
+					display: inline-block;
+					padding: 4px 12px;
+					border-radius: 15px;
+					background-color: #B0D8FF;
+					margin-right: 6px;
+					margin-top:4px;
+				}
+			}
+		}
+
+		#project-data-cards {
 			overflow: hidden;
 
 			.project-data-card {
@@ -442,14 +468,6 @@ div#content {
 
 				.data {
 					padding: 5px 10px;
-					.staff {
-						display: inline-block;
-						padding: 3px 10px;
-						border-radius: 15px;
-						background-color: #B0D8FF;
-						margin-right: 6px;
-						margin-top:4px;
-					}
 				}
 			}
 		}
