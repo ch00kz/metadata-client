@@ -43,7 +43,22 @@ projectsModule.controller('ProjectCreateCtrl', ['$rootScope','Project','$compile
 			"lead_staff": $scope.lead_staff,
 			"assisting_staff": $scope.assisting_staff
 		};
-		console.log($scope.params);
+
+		Project.createProject($scope.params).then(function(response){
+			if (response.status) {
+				swal({
+					title: "Project Created",
+					text: "Project " + response.project_name + " has been created.",
+					type: "success"
+				});
+			} else {
+				swal({
+					title: "Error",
+					text: response.msg,
+					type: "error"
+				});
+			}
+		});
 	};
 
 	window.scope = $scope;

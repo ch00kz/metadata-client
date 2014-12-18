@@ -1,10 +1,10 @@
 projectsModule.factory('Project', ['$http', function($http){
-    // var url = "http://localhost:8000";
-    var url = "http://104.236.6.55:8000";
+    var url = "http://localhost:8000";
+    // var url = "http://104.236.6.55:8000";
+    var projectUrl = url + "/api/v1/project/";
+
     return {
     	getList: function() {
-    		var projectUrl = url + "/api/v1/project/";
-
     		var promise = $http({
     			url: projectUrl,
     			method: "GET",
@@ -12,9 +12,9 @@ projectsModule.factory('Project', ['$http', function($http){
     		return promise;
     	},
     	getDetails: function(id) {
-    		var projectUrl = url + "/api/v1/project/" + id + "/";
+    		var url = projectUrl + id + "/";
     		var promise = $http({
-    			url: projectUrl,
+    			url: url,
     			method: "GET",
     		});
     		return promise;
@@ -28,13 +28,18 @@ projectsModule.factory('Project', ['$http', function($http){
     		return promise;
     	},
         createProject: function(params){
-            var promise = $http({
-                url: projectUrl,
-                method: "POST",
-                data: JSON.strigify(params),
-                contentType: "application/json"
-            });
-            return promise;
+            var url = projectUrl + "create/";
+
+           return $.post(
+                url,
+                {
+                    data: JSON.stringify(params),
+                },
+                function(response) {
+                    console.log("Hit End Point");
+                },"json"
+            );
+
         }
     };
 }]);
